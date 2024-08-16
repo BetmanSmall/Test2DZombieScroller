@@ -41,3 +41,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Back2
+    uniqueID: 1861857813
+    locked: 0
+  - name: Back1
+    uniqueID: 141028727
+    locked: 0
+  - name: Building
+    uniqueID: 2919166121
+    locked: 0
+  - name: Ground
+    uniqueID: 3039824613
+    locked: 0
+  - name: CarBack
+    uniqueID: 3479099777
+    locked: 0
+  - name: CarForward
+    uniqueID: 1909113185
+    locked: 0
+  - name: Player
+    uniqueID: 2089620187
+    locked: 0
+  - name: Zombie
+    uniqueID: 4053563947
+    locked: 0
