@@ -1,9 +1,12 @@
+using _Game.Scripts.Enemies;
 using UnityEngine;
 using UnityEngine.Pool;
+
 namespace _Game.Scripts.Player.Weapons.Bullets {
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerBullet : MonoBehaviour {
         [SerializeField] private new Rigidbody2D rigidbody2D;
+        [SerializeField] private float damage = 7.5f;
         private ObjectPool<PlayerBullet> _objectPoolPlayerBullets;
 
         private void Awake() {
@@ -20,14 +23,9 @@ namespace _Game.Scripts.Player.Weapons.Bullets {
 
         private void OnTriggerEnter2D(Collider2D other) {
             if (other.gameObject.CompareTag("Zombie")) {
-                // take damage
-            }
-            _objectPoolPlayerBullets.Release(this);
-        }
-
-        private void OnCollisionEnter2D(Collision2D other) {
-            if (other.gameObject.CompareTag("Zombie")) {
-                // take damage
+                if (other.gameObject.TryGetComponent(out ZombieEnemy zombieEnemy)) {
+                    zombieEnemy.TakeDamage(damage);
+                }
             }
             _objectPoolPlayerBullets.Release(this);
         }
