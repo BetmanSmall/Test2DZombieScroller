@@ -3,15 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Zombie
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
+  - Zombie
   - 
   - 
   - 
@@ -64,4 +65,7 @@ TagManager:
     locked: 0
   - name: Zombie
     uniqueID: 4053563947
+    locked: 0
+  - name: Bullet
+    uniqueID: 1083968467
     locked: 0
