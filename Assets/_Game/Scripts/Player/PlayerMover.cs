@@ -4,7 +4,7 @@ namespace _Game.Scripts.Player {
     [RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
     public class PlayerMover : MonoBehaviour {
         [SerializeField] private Animator animator;
-        [SerializeField] private Rigidbody2D rigidbody2D;
+        [SerializeField] private new Rigidbody2D rigidbody2D;
         [SerializeField] private float speed = 10f;
         private float _horizontalFloat;
         private bool _rightDirection;
@@ -21,7 +21,7 @@ namespace _Game.Scripts.Player {
             }
         }
 
-        public void Move(float horizontalFloat) {
+        public void PlayerHorizontalMove(float horizontalFloat) {
             if (Mathf.Abs(horizontalFloat) > 0.01f) {
                 if (horizontalFloat > 0f) {
                     if (!_rightDirection) {
@@ -37,6 +37,8 @@ namespace _Game.Scripts.Player {
                 _horizontalFloat = horizontalFloat;
                 animator.SetBool(IsMove, true);
             } else {
+                _horizontalFloat = 0f;
+                rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
                 animator.SetBool(IsMove, false);
             }
         }
