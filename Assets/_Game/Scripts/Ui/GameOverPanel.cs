@@ -27,6 +27,7 @@ namespace _Game.Scripts.Ui {
         public void ShowPanel() {
             Time.timeScale = 0f;
             panel.SetActive(true);
+            AudioManager.Instance?.PlayRandomGameOver();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace _Game.Scripts.Player.Weapons {
             if (!_burstShootCoroutineRunning && shoot) {
                 if (playerBulletSpawner.Shoot()) {
                     StartFireAnimation();
+                    AudioManager.Instance?.PlayRandomSingleShot();
                 }
             }
         }
@@ -26,6 +27,7 @@ namespace _Game.Scripts.Player.Weapons {
         public void PlayerShootBurst(bool shoot) {
             if (!_burstShootCoroutineRunning && shoot) {
                 StartCoroutine(BurstShoot());
+                AudioManager.Instance?.PlayRandomBurstShots();
             } else if (shoot == false) {
                 _burstShootCoroutineRunning = false;
             }

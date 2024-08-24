@@ -42,6 +42,7 @@ namespace _Game.Scripts.Enemies {
                         OnDie?.Invoke();
                         _objectPoolZombieEnemys.Release(this);
                         Instantiate(pickupbleAmmo, gameObject.transform.position + Vector3.up*1.5f, Quaternion.identity);
+                        AudioManager.Instance?.PlayRandomZombieDeath();
                     }
                     return true;
                 }
@@ -52,6 +53,7 @@ namespace _Game.Scripts.Enemies {
         private void OnCollisionEnter2D(Collision2D other) {
             if (other.gameObject.CompareTag("Player")) {
                 GameOverPanel.Instance.ShowPanel();
+                AudioManager.Instance?.PlayRandomPlayerDeath();
             }
         }
     }

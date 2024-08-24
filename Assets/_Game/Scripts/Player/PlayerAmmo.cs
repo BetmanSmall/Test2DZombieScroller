@@ -17,6 +17,7 @@ namespace _Game.Scripts.Player {
             if (addAmmoCount > 0) {
                 _currentAmmoCount += addAmmoCount;
                 ammoPanel.SetAmmo(_currentAmmoCount);
+                AudioManager.Instance?.PlayRandomAmmoPickUp();
             }
         }
 
