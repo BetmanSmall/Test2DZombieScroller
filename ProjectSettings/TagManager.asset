@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Zombie
   - PlayerBullet
+  - PickupbleAmmo
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - Zombie
   - PlayerBullet
-  - 
+  - PickupbleAmmo
   - 
   - 
   - 
@@ -72,4 +73,7 @@ TagManager:
     locked: 0
   - name: HpBars
     uniqueID: 1431604479
+    locked: 0
+  - name: PickupbleAmmo
+    uniqueID: 1784263995
     locked: 0

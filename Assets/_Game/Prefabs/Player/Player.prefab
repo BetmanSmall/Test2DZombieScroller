@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 554552328981419489}
   - component: {fileID: 4275538746169905673}
   - component: {fileID: 3033076359156718814}
+  - component: {fileID: 5468270770231315939}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -216,6 +217,20 @@ MonoBehaviour:
   bulletSpeed: 5
   shootingPoint: {fileID: 3425605499295662685}
   bulletsContainer: {fileID: 5254335288246235953}
+--- !u!114 &5468270770231315939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929266063843410496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448da4ab34b443be924b7421870e54d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoPanel: {fileID: 0}
+  startAmmoCount: 30
 --- !u!1 &2304283842511331485
 GameObject:
   m_ObjectHideFlags: 0

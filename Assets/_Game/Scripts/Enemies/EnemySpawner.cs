@@ -45,7 +45,7 @@ namespace _Game.Scripts.Enemies {
         }
 
         public IEnumerator SpawnEnemys() {
-            while (true) {
+            while (true && Time.timeScale > 0f) {
                 ZombieEnemy zombieEnemy = _objectPoolZombieEnemys.Get();
                 Debug.Log("EnemySpawner::SpawnEnemys(); -- zombieEnemy:" + JsonUtility.ToJson(zombieEnemy));
                 yield return new WaitForSecondsRealtime(Random.Range(1f, maxRandomSpawnTime));

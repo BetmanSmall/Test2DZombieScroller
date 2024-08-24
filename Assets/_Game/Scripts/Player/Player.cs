@@ -5,6 +5,8 @@ namespace _Game.Scripts.Player {
     public class Player : MonoBehaviour {
         [SerializeField] private PlayerMover playerMover;
         [SerializeField] private PlayerShooter playerShooter;
+        [SerializeField] private float burstDelayTime = 1f;
+        private float _elapsedBurstDelayTime;
 
         private void Awake() {
             if (!playerMover) playerMover = GetComponent<PlayerMover>();
@@ -18,7 +20,14 @@ namespace _Game.Scripts.Player {
             } else {
                 PlayerHorizontalMove(0);
                 playerShooter.PlayerShootOneShot(fireOnShot);
-                playerShooter.PlayerShootBurst(fireBurst);
+                _elapsedBurstDelayTime += Time.deltaTime;
+                if (_elapsedBurstDelayTime >= burstDelayTime) {
+                    playerShooter.PlayerShootBurst(fireBurst);
+                    _elapsedBurstDelayTime = 0f;
+                }
+            }
+            if (!fireBurst) {
+                _elapsedBurstDelayTime = 0f;
             }
         }
 

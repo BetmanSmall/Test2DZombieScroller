@@ -8,6 +8,7 @@ namespace _Game.Scripts.Player.Weapons {
         [SerializeField] private float bulletSpeed = 5f;
         [SerializeField] private Transform shootingPoint;
         [SerializeField] private Transform bulletsContainer;
+        [SerializeField] private PlayerAmmo playerAmmo;
         private ObjectPool<PlayerBullet> _objectPoolPlayerBullets;
 
         private void Awake() {
@@ -35,11 +36,16 @@ namespace _Game.Scripts.Player.Weapons {
             Destroy(playerBullet.gameObject);
         }
 
-        public void Shoot() {
-            PlayerBullet playerBullet = _objectPoolPlayerBullets.Get();
-            if (playerBullet != null) {
-                playerBullet.AddForse(shootingPoint.right * bulletSpeed);
+        public bool Shoot() {
+            if (playerAmmo.CurrentAmmoCount > 0) {
+                PlayerBullet playerBullet = _objectPoolPlayerBullets.Get();
+                if (playerBullet != null) {
+                    playerBullet.AddForse(shootingPoint.right * bulletSpeed);
+                }
+                playerAmmo.DecrementAmmoCount(1);
+                return true;
             }
+            return false;
         }
     }
 }

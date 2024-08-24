@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+
 namespace _Game.Scripts.Player.Weapons {
     public class PlayerShooter : MonoBehaviour {
         private static readonly int IsFire = Animator.StringToHash("IsFire");
@@ -16,14 +17,14 @@ namespace _Game.Scripts.Player.Weapons {
 
         public void PlayerShootOneShot(bool shoot) {
             if (!_burstShootCoroutineRunning && shoot) {
-                StartFireAnimation();
-                playerBulletSpawner.Shoot();
+                if (playerBulletSpawner.Shoot()) {
+                    StartFireAnimation();
+                }
             }
         }
 
         public void PlayerShootBurst(bool shoot) {
             if (!_burstShootCoroutineRunning && shoot) {
-                StartFireAnimation();
                 StartCoroutine(BurstShoot());
             } else if (shoot == false) {
                 _burstShootCoroutineRunning = false;
@@ -34,7 +35,9 @@ namespace _Game.Scripts.Player.Weapons {
             int curentShot = 0;
             _burstShootCoroutineRunning = true;
             while (curentShot++ < burstBulletCount && _burstShootCoroutineRunning) {
-                playerBulletSpawner.Shoot();
+                if (playerBulletSpawner.Shoot()) {
+                    StartFireAnimation();
+                }
                 yield return new WaitForSeconds(timeBetweenBurstShots);
             }
             _burstShootCoroutineRunning = false;

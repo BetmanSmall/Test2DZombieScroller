@@ -264,6 +264,7 @@ MonoBehaviour:
   maxHp: 60
   currentHp: 0
   imageHp: {fileID: 3676008155585765100}
+  pickupbleAmmo: {fileID: 4272974930469214620, guid: 5c0bf4fe7d1686d76ba67f0f2020e14f, type: 3}
 --- !u!114 &9176206563515376714
 MonoBehaviour:
   m_ObjectHideFlags: 0
